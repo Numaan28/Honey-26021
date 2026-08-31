@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Verified Honey Jars — HoneyChain</title>
+    <meta name="description" content="Personal history of all verified honey batches and authenticity certificates." />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/buyer.css" />
+  </head>
+  <body data-page="buyer-history">
+    <!-- Header -->
+    <header class="buyer-header">
+      <div class="buyer-header-inner">
+        <a href="../index.html" class="brand-logo">
+          <svg viewBox="0 0 32 32" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+            <circle cx="16" cy="17" r="5" fill="#78350f"/>
+          </svg>
+          <span>HoneyChain</span>
+        </a>
+        <nav style="display:flex;align-items:center;gap:1.25rem;">
+          <a href="verify.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">🔍 Verify a Batch</a>
+          <a href="../index.html" style="font-size:0.85rem;color:var(--text-secondary);">← Switch Role</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="buyer-container">
+      <div style="margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <h1 style="font-size:1.85rem;color:var(--honey-950);margin-bottom:0.25rem;">My Verified Honey Jars</h1>
+          <p style="font-size:0.95rem;color:var(--text-secondary);">Offline-capable cryptographic record of honey batches you have verified.</p>
+        </div>
+        <button class="btn btn-sm btn-outline" id="btn-clear-history" style="display:none;">
+          🗑️ Clear History
+        </button>
+      </div>
+
+      <!-- History Items List -->
+      <div id="history-list-container">
+        <!-- Injected via buyer.js -->
+      </div>
+    </main>
+
+    <!-- Clear History Confirmation Modal -->
+    <div class="modal-backdrop" id="clear-history-modal">
+      <div class="modal-dialog">
+        <h3 class="modal-title">Clear Verification History?</h3>
+        <p style="color:var(--text-secondary);margin-bottom:1.5rem;">
+          This will remove your local cache of verified honey batches. You can always re-verify any honey jar by scanning its packaging QR code again.
+        </p>
+        <div class="modal-actions">
+          <button class="btn btn-secondary" onclick="closeModal('clear-history-modal')">Cancel</button>
+          <button class="btn btn-danger" id="confirm-clear-history-btn">Yes, Clear History</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/buyer.js"></script>
+  </body>
+</html>

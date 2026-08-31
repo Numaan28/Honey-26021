@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Honey Authenticity — HoneyChain</title>
+    <meta name="description" content="Enter your honey jar batch ID to view cryptographic lab purity certificates and hive harvest records." />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/buyer.css" />
+  </head>
+  <body data-page="buyer-verify">
+    <!-- Header -->
+    <header class="buyer-header">
+      <div class="buyer-header-inner">
+        <a href="../index.html" class="brand-logo">
+          <svg viewBox="0 0 32 32" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+            <circle cx="16" cy="17" r="5" fill="#78350f"/>
+          </svg>
+          <span>HoneyChain</span>
+        </a>
+        <nav style="display:flex;align-items:center;gap:1.25rem;">
+          <a href="history.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">📋 My Verified Batches</a>
+          <a href="../index.html" style="font-size:0.85rem;color:var(--text-secondary);">← Switch Role</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="buyer-container">
+      <!-- Search Card -->
+      <div class="buyer-card" id="verify-search-card">
+        <div class="verify-hero">
+          <div style="font-size:3rem;margin-bottom:0.5rem;">🍯</div>
+          <h1 style="font-size:2rem;color:var(--honey-950);margin-bottom:0.5rem;">Verify Honey Authenticity</h1>
+          <p style="font-size:1rem;color:var(--text-secondary);max-width:520px;margin:0 auto;">
+            Enter the Batch ID printed on your honey jar label to trace its exact hive origin, harvest date, and laboratory purity certificate.
+          </p>
+        </div>
+
+        <form id="verify-batch-form" style="max-width:480px;margin:0 auto;">
+          <div class="form-group" style="margin-bottom:1.25rem;">
+            <label class="form-label" for="verify-batch-input" style="font-size:0.95rem;">Batch ID on Packaging Seal</label>
+            <input 
+              type="text" 
+              class="form-input font-mono" 
+              id="verify-batch-input" 
+              placeholder="e.g. HC-2026-00125" 
+              value="HC-2026-00125" 
+              required 
+              style="font-size:1.15rem;padding:0.85rem 1rem;text-align:center;letter-spacing:0.05em;" 
+            />
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.4rem;text-align:center;">Sample demo batches:</div>
+            <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
+              <button type="button" class="chip-btn" data-batch-id="HC-2026-00125">HC-2026-00125 (Primary)</button>
+              <button type="button" class="chip-btn" data-batch-id="HC-2026-00088">HC-2026-00088 (Wildflower)</button>
+              <button type="button" class="chip-btn" data-batch-id="HC-2026-00142">HC-2026-00142 (Acacia)</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg w-full" id="btn-submit-verify" style="padding:0.9rem 1.5rem;font-size:1.1rem;">
+            Verify Honey →
+          </button>
+        </form>
+
+        <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle);text-align:center;">
+          <a href="history.html" style="font-size:0.9rem;color:var(--honey-700);font-weight:600;">
+            View Previously Verified Honey Jars →
+          </a>
+        </div>
+      </div>
+
+      <!-- User-friendly Error State (Hidden by default) -->
+      <div class="buyer-card" id="verify-error-box" style="display:none;text-align:center;padding:3rem 1.5rem;border:2px solid var(--danger-border);">
+        <div style="font-size:3rem;margin-bottom:1rem;">⚠️</div>
+        <h2 style="font-size:1.6rem;color:var(--danger-text);margin-bottom:0.5rem;">Batch Not Found</h2>
+        <p style="color:var(--text-secondary);max-width:460px;margin:0 auto 1.5rem;">
+          We couldn't find that Batch ID in the HoneyChain ledger. Please check the ID printed on your honey jar label and try again.
+        </p>
+        <button class="btn btn-primary" id="btn-verify-try-again">
+          ← Try Another Batch ID
+        </button>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/buyer.js"></script>
+  </body>
+</html>

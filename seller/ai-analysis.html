@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Colony Health Diagnostics — HoneyChain</title>
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/seller.css" />
+  </head>
+  <body data-page="seller-ai">
+    <div class="app-shell">
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar" id="seller-sidebar">
+        <div class="sidebar-header">
+          <a href="../index.html" class="brand-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+              <circle cx="16" cy="17" r="5" fill="#78350f"/>
+            </svg>
+            <span>HoneyChain</span>
+          </a>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Overview</span>
+          </a>
+          <a href="hives.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <span>Hives & IoT</span>
+          </a>
+          <a href="ai-analysis.html" class="sidebar-link active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+            <span>AI Health</span>
+          </a>
+          <a href="batches.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>Batches</span>
+          </a>
+          <a href="quality.html?batch=HC-2026-00125" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Quality & Lab</span>
+          </a>
+          <a href="traceability.html?batch=HC-2026-00125" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            <span>Traceability</span>
+          </a>
+          <a href="qr-generator.html?batch=HC-2026-00125" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3z"/><path d="M17 17h3v3h-3z"/></svg>
+            <span>QR Generator</span>
+          </a>
+          <a href="analytics.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Analytics</span>
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <a href="../index.html" class="btn btn-sm btn-outline w-full" style="margin-bottom:0.5rem;">← Switch Role</a>
+          <button class="btn btn-sm btn-ghost w-full btn-reset-demo">↺ Reset Demo Data</button>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div class="app-main">
+        <!-- Topbar -->
+        <header class="app-topbar">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <div class="topbar-search">
+              <span class="topbar-search-icon">🔍</span>
+              <input type="text" id="seller-global-search" placeholder="Search Batch ID or Hive..." autocomplete="off" />
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <div class="notif-wrapper">
+              <button class="notif-btn" id="notif-btn">🔔<span class="notif-badge" id="notif-badge">2</span></button>
+              <div class="notif-dropdown" id="notif-dropdown">
+                <div class="notif-header"><span>Apiary Alerts</span></div>
+                <div class="notif-list" id="notif-list"></div>
+              </div>
+            </div>
+            <a href="../buyer/verify.html" class="btn btn-sm btn-secondary">Buyer View</a>
+          </div>
+        </header>
+
+        <!-- Page View -->
+        <main class="page-content">
+          <div class="page-header">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.35rem;">
+                <h1 class="page-title" style="margin-bottom:0;">AI Health Diagnostics</h1>
+                <span class="brand-badge" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">AI PROTOTYPE SIMULATION</span>
+              </div>
+              <p class="page-subtitle">Acoustic harmonic frequency analysis, brood thermoregulation classification, and cluster stress predictions.</p>
+            </div>
+            <div style="display:flex;gap:0.75rem;">
+              <button class="btn btn-secondary btn-sm" id="ai-run-again-btn">Run Analysis Again</button>
+            </div>
+          </div>
+
+          <!-- Active AI Warning Dossier for HIVE-003 -->
+          <div class="card" style="border: 2px solid var(--warning-border); margin-bottom: 2rem;" id="ai-dossier-card">
+            <div class="card-header" style="background:var(--warning-bg);margin:-1.5rem -1.5rem 1.5rem -1.5rem;padding:1.25rem 1.5rem;border-bottom:1px solid var(--warning-border);">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <span style="font-size:1.5rem;">⚠️</span>
+                <div>
+                  <div style="font-size:0.8rem;font-weight:700;color:var(--warning-text);text-transform:uppercase;">Anomaly Detected • Highland Pine Hive Gamma</div>
+                  <h2 style="font-size:1.35rem;color:var(--warning-text);margin:0;">HIVE-003: WARNING — Possible Abnormal Activity Detected</h2>
+                </div>
+              </div>
+              <div id="ai-reviewed-status">
+                <span class="badge badge-warning" style="font-size:0.9rem;padding:0.4rem 0.8rem;">Pending Review</span>
+              </div>
+            </div>
+
+            <!-- AI Confidence & Health Score Metrics -->
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+              <div class="iot-metric-box">
+                <div class="text-muted" style="font-size:0.8rem;font-weight:600;">Colony Health Score</div>
+                <div class="iot-metric-val" style="color:var(--honey-700);">92/100</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">-6 points vs 14-day baseline</div>
+              </div>
+              <div class="iot-metric-box">
+                <div class="text-muted" style="font-size:0.8rem;font-weight:600;">AI Model Confidence</div>
+                <div class="iot-metric-val" style="color:var(--info-solid);">87%</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">Ensemble sensor classification</div>
+              </div>
+              <div class="iot-metric-box">
+                <div class="text-muted" style="font-size:0.8rem;font-weight:600;">Predicted Risk Level</div>
+                <div class="iot-metric-val" style="color:var(--warning-solid);">Medium</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">Action required within 48h</div>
+              </div>
+            </div>
+
+            <!-- Detected Sensor Signals -->
+            <div style="margin-bottom: 1.5rem;">
+              <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Detected Signals & Telemetry Signatures</h3>
+              <div id="ai-signals-container">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- Recommendation & Action Bar -->
+            <div style="background:var(--bg-surface-muted);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+              <div>
+                <strong style="font-size:0.95rem;color:var(--text-primary);">Apiary Recommendation:</strong>
+                <p style="font-size:0.88rem;color:var(--text-secondary);margin:0.2rem 0 0 0;">
+                  Inspect hive entrance screen for propolis obstruction. Ensure auxiliary ventilation shim is installed.
+                </p>
+              </div>
+              <div style="display:flex;gap:0.75rem;">
+                <a href="hives.html?hive=HIVE-003" class="btn btn-secondary">Inspect Hive Telemetry</a>
+                <button class="btn btn-primary" id="ai-mark-reviewed-btn">Mark as Reviewed</button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Reset Demo Confirmation Modal -->
+    <div class="modal-backdrop" id="reset-demo-modal">
+      <div class="modal-dialog">
+        <h3 class="modal-title">Reset Demo Data?</h3>
+        <p style="color:var(--text-secondary);margin-bottom:1.5rem;">
+          This will restore batch <code>HC-2026-00125</code>, re-enable HIVE-003 alerts, and reset history.
+        </p>
+        <div class="modal-actions">
+          <button class="btn btn-secondary" onclick="closeModal('reset-demo-modal')">Cancel</button>
+          <button class="btn btn-danger" id="confirm-reset-btn">Yes, Reset Demo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/seller.js"></script>
+  </body>
+</html>

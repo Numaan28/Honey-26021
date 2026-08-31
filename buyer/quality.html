@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consumer Laboratory Purity Certificate — HoneyChain</title>
+    <meta name="description" content="View verified spectrometry and adulteration test records." />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/buyer.css" />
+  </head>
+  <body data-page="buyer-quality">
+    <!-- Header -->
+    <header class="buyer-header">
+      <div class="buyer-header-inner">
+        <a href="../index.html" class="brand-logo">
+          <svg viewBox="0 0 32 32" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+            <circle cx="16" cy="17" r="5" fill="#78350f"/>
+          </svg>
+          <span>HoneyChain</span>
+        </a>
+        <nav style="display:flex;align-items:center;gap:1.25rem;">
+          <a href="verify.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">🔍 Verify Another</a>
+          <a href="history.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">📋 My History</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="buyer-container">
+      <div style="margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
+        <div>
+          <a href="result.html" class="nav-back-link">← Back to Certificate</a>
+          <h1 style="font-size:1.85rem;color:var(--honey-950);margin-top:0.25rem;">Quality & Laboratory Test Record</h1>
+        </div>
+        <span class="badge badge-verified" id="bq-status">Verified</span>
+      </div>
+
+      <!-- Laboratory Certificate Card -->
+      <div class="buyer-card" style="border: 2px solid var(--honey-300); margin-bottom: 2rem;">
+        <div style="text-align:center;padding-bottom:1.5rem;border-bottom:1px solid var(--border-subtle);margin-bottom:1.5rem;">
+          <div style="font-size:0.8rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;letter-spacing:0.05em;">FSSAI & AGMARK Lab Protocol</div>
+          <h2 style="font-size:1.4rem;color:var(--honey-900);margin:0.25rem 0;" id="bq-batch-id">Batch HC-2026-00125</h2>
+          <div style="font-size:0.85rem;color:var(--text-secondary);">Certificate No: <strong class="font-mono" id="bq-cert-id">CERT-IND-90241</strong></div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem;">
+          <div class="buyer-detail-item">
+            <div class="buyer-detail-label">Purity Index (Isotope IRMS)</div>
+            <div class="buyer-detail-value" style="font-size:1.3rem;color:var(--success-solid);font-weight:800;" id="bq-purity">99.4%</div>
+          </div>
+          <div class="buyer-detail-item">
+            <div class="buyer-detail-label">Moisture Content (Refractometer)</div>
+            <div class="buyer-detail-value" style="font-size:1.3rem;color:var(--honey-800);font-weight:800;" id="bq-moisture">17.2%</div>
+          </div>
+          <div class="buyer-detail-item">
+            <div class="buyer-detail-label">Fructose to Glucose Ratio</div>
+            <div class="buyer-detail-value" id="bq-ratio">1.22 (Standard: &gt; 1.0)</div>
+          </div>
+          <div class="buyer-detail-item">
+            <div class="buyer-detail-label">Active Microscopic Pollen Count</div>
+            <div class="buyer-detail-value" id="bq-pollen">45,000 grains/g</div>
+          </div>
+          <div class="buyer-detail-item">
+            <div class="buyer-detail-label">Laboratory Assay Date</div>
+            <div class="buyer-detail-value" id="bq-tested-date">2026-08-18</div>
+          </div>
+          <div class="buyer-detail-item">
+            <div class="buyer-detail-label">C4 Syrup / Rice Syrup Adulteration</div>
+            <div class="buyer-detail-value" style="color:var(--success-solid);font-weight:700;">0.0% (Non-Detect)</div>
+          </div>
+          <div class="buyer-detail-item" style="grid-column: span 2;">
+            <div class="buyer-detail-label">Analytical Remarks</div>
+            <div class="buyer-detail-value" id="bq-notes" style="font-size:0.9rem;color:var(--text-secondary);">
+              Unheated raw cold-extracted honey with optimal enzyme preservation (Diastase activity &gt; 8 Schade units).
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-surface-muted);padding:1rem;border-radius:var(--radius-md);font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.75rem;">
+          <span style="font-size:1.25rem;">🔒</span>
+          <span>This laboratory verification record is cryptographically tied to the physical harvest batch in the HoneyChain ledger.</span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:1rem;justify-content:center;">
+        <a href="result.html" class="btn btn-secondary">← Back to Certificate</a>
+        <a href="verify.html" class="btn btn-outline">Verify Another Batch</a>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/buyer.js"></script>
+  </body>
+</html>

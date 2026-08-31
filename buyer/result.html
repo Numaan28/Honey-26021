@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verification Certificate — HoneyChain</title>
+    <meta name="description" content="Official cryptographic honey authenticity and provenance certificate." />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/buyer.css" />
+  </head>
+  <body data-page="buyer-result">
+    <!-- Header -->
+    <header class="buyer-header">
+      <div class="buyer-header-inner">
+        <a href="../index.html" class="brand-logo">
+          <svg viewBox="0 0 32 32" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+            <circle cx="16" cy="17" r="5" fill="#78350f"/>
+          </svg>
+          <span>HoneyChain</span>
+        </a>
+        <nav style="display:flex;align-items:center;gap:1.25rem;">
+          <a href="verify.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">🔍 Verify Another</a>
+          <a href="history.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">📋 My History</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="buyer-container">
+      <!-- VALID RESULT CONTAINER -->
+      <div id="buyer-result-container">
+        <!-- Verification Banner Header -->
+        <div class="buyer-card" style="border-top: 6px solid var(--success-solid); margin-bottom: 1.5rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+                <span style="font-size:1.5rem;color:var(--success-solid);">✓</span>
+                <span style="font-size:1.2rem;font-weight:800;color:var(--success-solid);text-transform:uppercase;letter-spacing:0.04em;">Honey Verified Authentic</span>
+              </div>
+              <h1 style="font-size:2rem;color:var(--honey-950);margin-bottom:0.25rem;" id="r-honey-type">Raw Mustard Honey</h1>
+              <div style="font-size:1rem;color:var(--text-secondary);">
+                Batch ID: <strong class="font-mono" id="r-batch-id">HC-2026-00125</strong>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <span class="stamp-badge badge-verified" id="r-status-badge">Verified</span>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.4rem;">SIH 2026 Trust Protocol</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Honey Origin Section -->
+        <div class="buyer-card" style="margin-bottom: 1.5rem;">
+          <h2 style="font-size:1.25rem;color:var(--honey-900);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+            <span>🌸</span> Botanical Origin & Apiary Source
+          </h2>
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Floral Origin / Blossom</div>
+              <div class="buyer-detail-value" id="r-floral-origin">Mustard</div>
+            </div>
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Monitored Source Hive</div>
+              <div class="buyer-detail-value font-mono" id="r-source-hive">HIVE-001</div>
+            </div>
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Harvest Date</div>
+              <div class="buyer-detail-value" id="r-harvest-date">2026-08-15</div>
+            </div>
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Harvest Batch Quantity</div>
+              <div class="buyer-detail-value" id="r-quantity">42 kg</div>
+            </div>
+            <div class="buyer-detail-item" style="grid-column:span 2;">
+              <div class="buyer-detail-label">Harvest Apiary Location</div>
+              <div class="buyer-detail-value" id="r-location">Kashmir Valley Apiary #4, India</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quality & Purity Section -->
+        <div class="buyer-card" style="margin-bottom: 1.5rem;">
+          <h2 style="font-size:1.25rem;color:var(--honey-900);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+            <span>🧪</span> Laboratory Purity & Quality Metrics
+          </h2>
+          <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Quality Status</div>
+              <div class="buyer-detail-value" style="color:var(--success-solid);font-weight:700;" id="r-quality-status">Verified</div>
+            </div>
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Purity Index</div>
+              <div class="buyer-detail-value" style="color:var(--honey-700);" id="r-purity">99.4%</div>
+            </div>
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Moisture Content</div>
+              <div class="buyer-detail-value" id="r-moisture">17.2%</div>
+            </div>
+            <div class="buyer-detail-item">
+              <div class="buyer-detail-label">Laboratory Certificate</div>
+              <div class="buyer-detail-value font-mono" id="r-cert-id">CERT-IND-90241</div>
+            </div>
+            <div class="buyer-detail-item" style="grid-column:span 2;">
+              <div class="buyer-detail-label">Extraction Method</div>
+              <div class="buyer-detail-value" id="r-processing">Cold extracted & coarse filtered without thermal pasteurization.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blockchain Hash Anchor -->
+        <div class="buyer-card" style="margin-bottom: 2rem; background: var(--bg-surface-muted);">
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;margin-bottom:0.25rem;">
+            ⛓️ SHA-256 Cryptographic Hash
+          </div>
+          <div class="font-mono" style="font-size:0.85rem;word-break:break-all;color:var(--honey-800);" id="r-hash">
+            0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9060
+          </div>
+        </div>
+
+        <!-- Navigation Buttons Grid -->
+        <div style="display:flex;gap:1rem;flex-direction:column;">
+          <a href="journey.html?batch=HC-2026-00125" class="btn btn-primary btn-lg w-full" id="btn-buyer-journey" style="text-align:center;padding:1rem;">
+            Explore Honey Journey →
+          </a>
+          <div style="display:flex;gap:1rem;">
+            <a href="quality.html?batch=HC-2026-00125" class="btn btn-secondary w-full" id="btn-buyer-quality" style="text-align:center;">
+              View Quality Record →
+            </a>
+            <a href="verify.html" class="btn btn-outline w-full" style="text-align:center;">
+              Verify Another Batch
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOT FOUND ERROR CONTAINER -->
+      <div id="buyer-not-found-container" class="buyer-card" style="display:none;text-align:center;padding:3.5rem 1.5rem;border:2px solid var(--danger-border);">
+        <div style="font-size:3rem;margin-bottom:1rem;">⚠️</div>
+        <h2 style="font-size:1.6rem;color:var(--danger-text);margin-bottom:0.5rem;">Batch Not Found</h2>
+        <p style="color:var(--text-secondary);max-width:460px;margin:0 auto 1.5rem;">
+          We couldn't find that Batch ID in the HoneyChain ledger. Please check the ID printed on your honey jar label and try again.
+        </p>
+        <a href="verify.html" class="btn btn-primary">
+          ← Try Another Batch ID
+        </a>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/buyer.js"></script>
+  </body>
+</html>

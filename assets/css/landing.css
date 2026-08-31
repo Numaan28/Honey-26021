@@ -1,0 +1,233 @@
+/* ==========================================================================
+   HONEYCHAIN — Landing & Role Selection Stylesheet (Bold Typography Theme)
+   ========================================================================== */
+
+.landing-hero {
+  padding: 5rem 1.5rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at 50% 0%, #1a1008 0%, #0a0a0a 70%);
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  background: var(--bg-surface-muted);
+  color: var(--accent-flame);
+  border: 1px solid rgba(255, 62, 0, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #f5f5f5;
+  margin-bottom: 1rem;
+  line-height: 1.0;
+  text-transform: uppercase;
+}
+
+.hero-title span.text-amber {
+  color: var(--accent-flame);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.role-selection-section {
+  padding: 3rem 1.5rem 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.role-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: all var(--transition-normal);
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.role-card:hover {
+  border-color: var(--accent-flame);
+  box-shadow: 0 12px 36px rgba(255, 62, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.role-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.role-icon-box {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.role-seller .role-icon-box {
+  background: #241006;
+  color: var(--accent-flame);
+  border: 1px solid rgba(255, 62, 0, 0.4);
+}
+
+.role-buyer .role-icon-box {
+  background: #062217;
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+
+.role-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #f5f5f5;
+}
+
+.role-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.role-features {
+  list-style: none;
+  margin-bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.role-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.role-features li svg {
+  color: var(--accent-flame);
+  flex-shrink: 0;
+}
+
+/* Trust Stats Bar — Bold Precision Layout */
+.trust-bar {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 3rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1150px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.trust-item {
+  border-left: 2px solid var(--border-strong);
+  padding-left: 1.25rem;
+}
+
+.trust-item h4 {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #f5f5f5;
+  margin-bottom: 0.25rem;
+  line-height: 1.0;
+}
+
+.trust-item p {
+  font-size: 0.72rem;
+  color: var(--accent-flame);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  background: #0e0e0e;
+  border-top: 1px solid var(--border-subtle);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.4rem; }
+  .role-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .trust-item { border-left-width: 2px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+

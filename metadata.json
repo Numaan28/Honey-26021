@@ -1,0 +1,6 @@
+{
+  "name": "HoneyChain",
+  "description": "From Hive to Home — Every Drop, Verified. Decentralized honey traceability, IoT hive monitoring, AI quality assessment, and QR batch verification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Honey Batches & Inventory — HoneyChain</title>
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/seller.css" />
+  </head>
+  <body data-page="seller-batches">
+    <div class="app-shell">
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar" id="seller-sidebar">
+        <div class="sidebar-header">
+          <a href="../index.html" class="brand-logo">
+            <svg viewBox="0 0 32 32" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+              <circle cx="16" cy="17" r="5" fill="#78350f"/>
+            </svg>
+            <span>HoneyChain</span>
+          </a>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Overview</span>
+          </a>
+          <a href="hives.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <span>Hives & IoT</span>
+          </a>
+          <a href="ai-analysis.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+            <span>AI Health</span>
+          </a>
+          <a href="batches.html" class="sidebar-link active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>Batches</span>
+          </a>
+          <a href="quality.html?batch=HC-2026-00125" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Quality & Lab</span>
+          </a>
+          <a href="traceability.html?batch=HC-2026-00125" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            <span>Traceability</span>
+          </a>
+          <a href="qr-generator.html?batch=HC-2026-00125" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3z"/><path d="M17 17h3v3h-3z"/></svg>
+            <span>QR Generator</span>
+          </a>
+          <a href="analytics.html" class="sidebar-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Analytics</span>
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <a href="../index.html" class="btn btn-sm btn-outline w-full" style="margin-bottom:0.5rem;">← Switch Role</a>
+          <button class="btn btn-sm btn-ghost w-full btn-reset-demo">↺ Reset Demo Data</button>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div class="app-main">
+        <!-- Topbar -->
+        <header class="app-topbar">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <div class="topbar-search">
+              <span class="topbar-search-icon">🔍</span>
+              <input type="text" id="seller-global-search" placeholder="Search Batch ID or Hive..." autocomplete="off" />
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <div class="notif-wrapper">
+              <button class="notif-btn" id="notif-btn">🔔<span class="notif-badge" id="notif-badge">2</span></button>
+              <div class="notif-dropdown" id="notif-dropdown">
+                <div class="notif-header"><span>Apiary Alerts</span></div>
+                <div class="notif-list" id="notif-list"></div>
+              </div>
+            </div>
+            <a href="../buyer/verify.html" class="btn btn-sm btn-secondary">Buyer View</a>
+          </div>
+        </header>
+
+        <!-- Page View -->
+        <main class="page-content">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Honey Harvest Batches</h1>
+              <p class="page-subtitle">Tracked inventory, laboratory certifications, and extraction records.</p>
+            </div>
+            <a href="batch-details.html?batch=HC-2026-00125" class="btn btn-primary btn-sm">Manage Primary Batch (HC-2026-00125)</a>
+          </div>
+
+          <!-- Filter & Search Controls Card -->
+          <div class="card" style="margin-bottom:1.5rem;padding:1.25rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+              <div style="display:flex;gap:0.75rem;flex:1;min-width:280px;">
+                <input type="text" class="form-input" id="batch-table-search" placeholder="Search by Batch ID, Floral Origin or Type..." />
+              </div>
+              <div style="display:flex;gap:0.75rem;align-items:center;">
+                <label style="font-size:0.85rem;font-weight:600;color:var(--text-muted);">Status:</label>
+                <select class="form-select" id="batch-table-filter" style="width:140px;">
+                  <option value="all">All Batches</option>
+                  <option value="Verified">Verified</option>
+                  <option value="Processing">Processing</option>
+                  <option value="Pending">Pending</option>
+                </select>
+
+                <label style="font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-left:0.5rem;">Sort:</label>
+                <select class="form-select" id="batch-table-sort" style="width:150px;">
+                  <option value="date-desc">Newest Harvest</option>
+                  <option value="date-asc">Oldest Harvest</option>
+                  <option value="qty-desc">Quantity (High-Low)</option>
+                  <option value="qty-asc">Quantity (Low-High)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Batches Table -->
+          <div class="data-table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Batch ID</th>
+                  <th>Honey Variety & Origin</th>
+                  <th>Source Hive</th>
+                  <th>Harvest Date</th>
+                  <th>Gross Quantity</th>
+                  <th>Quality Status</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="batch-table-body">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Reset Demo Confirmation Modal -->
+    <div class="modal-backdrop" id="reset-demo-modal">
+      <div class="modal-dialog">
+        <h3 class="modal-title">Reset Demo Data?</h3>
+        <p style="color:var(--text-secondary);margin-bottom:1.5rem;">
+          This will restore batch <code>HC-2026-00125</code>, re-enable alerts, and reset history.
+        </p>
+        <div class="modal-actions">
+          <button class="btn btn-secondary" onclick="closeModal('reset-demo-modal')">Cancel</button>
+          <button class="btn btn-danger" id="confirm-reset-btn">Yes, Reset Demo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/seller.js"></script>
+  </body>
+</html>

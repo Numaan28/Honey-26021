@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Honey Journey & Provenance — HoneyChain</title>
+    <meta name="description" content="Explore every step in the farm-to-table journey of your verified honey jar." />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/buyer.css" />
+  </head>
+  <body data-page="buyer-journey">
+    <!-- Header -->
+    <header class="buyer-header">
+      <div class="buyer-header-inner">
+        <a href="../index.html" class="brand-logo">
+          <svg viewBox="0 0 32 32" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+            <circle cx="16" cy="17" r="5" fill="#78350f"/>
+          </svg>
+          <span>HoneyChain</span>
+        </a>
+        <nav style="display:flex;align-items:center;gap:1.25rem;">
+          <a href="verify.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">🔍 Verify Another</a>
+          <a href="history.html" style="font-weight:600;font-size:0.9rem;color:var(--honey-800);">📋 My History</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="buyer-container">
+      <div style="margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
+        <div>
+          <a href="result.html" class="nav-back-link">← Back to Certificate</a>
+          <h1 style="font-size:1.85rem;color:var(--honey-950);margin-top:0.25rem;" id="journey-batch-title">Batch HC-2026-00125 Honey Journey</h1>
+        </div>
+        <span class="badge badge-verified">6-Stage Verified</span>
+      </div>
+
+      <!-- Events List -->
+      <div id="journey-events-container">
+        <!-- Injected via buyer.js -->
+      </div>
+
+      <div style="margin-top:2rem;text-align:center;">
+        <a href="verify.html" class="btn btn-secondary">Verify Another Batch</a>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/buyer.js"></script>
+  </body>
+</html>

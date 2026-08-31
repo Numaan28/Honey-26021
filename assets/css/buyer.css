@@ -1,0 +1,335 @@
+/* ==========================================================================
+   HONEYCHAIN — Buyer Experience Stylesheet (Bold Typography Theme)
+   ========================================================================== */
+
+.buyer-body {
+  background: var(--bg-main);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+.buyer-header {
+  background: #0f0f0f;
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.buyer-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  padding: 0 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.buyer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* Verification Search Section */
+.verify-hero {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.verify-hero-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: #241006;
+  color: var(--accent-flame);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  border: 1px solid rgba(255, 62, 0, 0.4);
+}
+
+.verify-title {
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: #f5f5f5;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.verify-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.search-box-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2.5rem;
+}
+
+.search-input-wrapper {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.search-input-wrapper input {
+  flex: 1;
+  font-size: 1.15rem;
+  padding: 0.95rem 1.25rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #171717;
+  border: 1px solid var(--border-strong);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+}
+
+.search-input-wrapper input:focus {
+  background: #1e1e1e;
+  border-color: var(--accent-flame);
+  box-shadow: 0 0 0 2px rgba(255, 62, 0, 0.3);
+}
+
+.demo-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.chip-btn {
+  background: #1c1c1c;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: #f5f5f5;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.chip-btn:hover {
+  background: var(--accent-flame);
+  border-color: var(--accent-flame);
+  color: #ffffff;
+}
+
+/* Result Certificate Stamp */
+.verification-stamp-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  margin-bottom: 2.25rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.verification-stamp-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-flame);
+}
+
+.stamp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  background: #062217;
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  border-radius: var(--radius-sm);
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.stamp-hash-bar {
+  background: #171717;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Buyer Details Grid */
+.buyer-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.25rem;
+}
+
+.buyer-section-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.buyer-section-card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-flame);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.buyer-data-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed var(--border-subtle);
+  font-size: 0.92rem;
+}
+
+.buyer-data-row:last-child {
+  border-bottom: none;
+}
+
+.buyer-data-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.buyer-data-value {
+  color: #f5f5f5;
+  font-weight: 800;
+  text-align: right;
+}
+
+/* Buyer CTA Actions */
+.buyer-actions-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* History List */
+.history-item-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  transition: all var(--transition-fast);
+}
+
+.history-item-card:hover {
+  border-color: var(--accent-flame);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-flame);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.nav-back-link:hover {
+  color: #ffffff;
+}
+
+.buyer-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.buyer-detail-item {
+  background: #171717;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.buyer-detail-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-flame);
+  margin-bottom: 0.35rem;
+}
+
+.buyer-detail-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .verify-title { font-size: 2.2rem; }
+  .buyer-details-grid { grid-template-columns: 1fr; }
+  .search-input-wrapper { flex-direction: column; }
+  .buyer-actions-card { flex-direction: column; align-items: stretch; }
+  .buyer-actions-card .btn { width: 100%; }
+}
+
