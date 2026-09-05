@@ -211,5 +211,63 @@
     <script src="../assets/js/qr.js"></script>
     <script src="../assets/js/navigation.js"></script>
     <script src="../assets/js/seller.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const batchSelect = document.getElementById("qr-batch-select");
+  const qrImage = document.getElementById("qr-image");
+  const downloadBtn = document.getElementById("btn-download-qr");
+  const testLink = document.getElementById("btn-test-qr-link");
+  const batchDisplay = document.getElementById("qr-display-batch");
+  const urlDisplay = document.getElementById("qr-display-url");
+
+  function updateQR() {
+    const batchId = batchSelect.value;
+
+    // Change QR image
+    qrImage.src = `../assets/qr/${batchId}.png`;
+
+    // Change displayed batch
+    if (batchDisplay) {
+      batchDisplay.textContent = batchId;
+    }
+
+    // Change verification URL
+    const verificationUrl =
+      `${window.location.origin}/buyer/result.html?batch=${batchId}`;
+
+    if (urlDisplay) {
+      urlDisplay.textContent = verificationUrl;
+    }
+
+    // Change test link
+    if (testLink) {
+      testLink.href = `../buyer/result.html?batch=${batchId}`;
+    }
+  }
+
+  // Switch batch
+  if (batchSelect) {
+    batchSelect.addEventListener("change", updateQR);
+  }
+
+  // Download selected QR
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", () => {
+      const batchId = batchSelect.value;
+
+      const link = document.createElement("a");
+      link.href = `../assets/qr/${batchId}.png`;
+      link.download = `honeychain-qr-${batchId}.png`;
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+  }
+
+  // Load initial batch
+  updateQR();
+});
+</script>
   </body>
 </html>
