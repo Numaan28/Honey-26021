@@ -674,13 +674,14 @@ function initQrGeneratorPage() {
   
   const batchSelect = document.getElementById("qr-batch-select");
   const generateBtn = document.getElementById("btn-generate-qr");
-  const previewBtn = document.getElementById("btn-preview-qr");
+  const previewBtn = document.getElementById("btn-test-qr-link");
   const downloadBtn = document.getElementById("btn-download-qr");
-  const qrHolder = document.getElementById("qr-canvas-container");
-  const qrUrlDisplay = document.getElementById("qr-url-display");
-  const qrBatchDisplay = document.getElementById("qr-batch-display");
+  const qrImage = document.getElementById("qr-image");
+  const printBtn = document.getElementById("btn-print-qr");
+  const qrUrlDisplay = document.getElementById("qr-display-url");
+  const qrBatchDisplay = document.getElementById("qr-display-batch");
 
-  let currentCanvas = null;
+  
 
   // Populate batch selector
   if (batchSelect) {
@@ -716,15 +717,12 @@ function initQrGeneratorPage() {
       };
     }
 
-    // Render QR Code directly using standalone engine
-    if (window.HoneyChainQR && qrHolder) {
-      currentCanvas = window.HoneyChainQR.render(qrHolder, fullUrl, {
-        size: 240,
-        darkColor: "#18181b",
-        lightColor: "#ffffff"
-      });
-      showToast(`✓ Generated QR for ${batch.batchId}`, "success");
-    }
+    // Load the pre-generated QR image for this batch
+if (qrImage) {
+  qrImage.src = `../assets/qr/${batch.batchId}.png`;
+  qrImage.alt = `QR Code for ${batch.batchId}`;
+  showToast(`✓ Loaded QR for ${batch.batchId}`, "success");
+}
   }
 
   if (generateBtn) {
@@ -735,16 +733,25 @@ function initQrGeneratorPage() {
   }
 
   if (downloadBtn) {
-    downloadBtn.addEventListener("click", () => {
-      if (currentCanvas && window.HoneyChainQR) {
-        const selectedId = batchSelect ? batchSelect.value : "honeychain";
-        window.HoneyChainQR.download(currentCanvas, `honeychain-qr-${selectedId}.png`);
-        showToast("✓ QR Code downloaded", "success");
-      } else {
-        showToast("Please generate the QR code first", "warning");
-      }
-    });
-  }
+  downloadBtn.addEventListener("click", () => {
+    const selectedId = batchSelect ? batchSelect.value : initialBatchId;
+
+    const link = document.createElement("a");
+    link.href = `../assets/qr/${selectedId}.png`;
+    link.download = `honeychain-qr-${selectedId}.png`;
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showToast("✓ QR Code downloaded", "success");
+  });
+  if (printBtn) {
+  printBtn.addEventListener("click", () => {
+    window.print();
+  });
+}
+}
 
   // Initial QR Generation
   generateQR(initialBatchId);
